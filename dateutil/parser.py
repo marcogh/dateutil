@@ -695,11 +695,18 @@ class parser(object):
 
         info = self.info
 
-        if dayfirst is None:
-            dayfirst = info.dayfirst
+        if len(timestr.split('-')) == 3:                                        
+            dayfirst = False                                                    
+            yearfirst = True                                                    
+        else:                                                                   
+            dayfirst = True                                                     
+            yearfirst = False                                                   
 
-        if yearfirst is None:
-            yearfirst = info.yearfirst
+        #if dayfirst is None:
+        #    dayfirst = info.dayfirst
+
+        #if yearfirst is None:
+        #    yearfirst = info.yearfirst
 
         res = self._result()
         l = _timelex.split(timestr)         # Splits the timestr into tokens
